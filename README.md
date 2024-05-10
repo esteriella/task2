@@ -39,9 +39,9 @@ cd project-directory
 3. Resize the browser window to see how the menu adapts to different screen sizes.
 4. Click on the hamburger icon to toggle the visibility of the navigation links on mobile devices.
 
-## Contributing
+## Author
 
-Contributions are welcome! If you have suggestions or improvements for the navigation menu, feel free to submit a pull request.
+[Opeyemi Esther Agbaje](https://github.com/esteriella)
 
 ## License
 
