@@ -1,240 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Header Example</title>
-    <style>
-      :root {
-        --third-color: #007bff; /* Example color */
-        --blue-color: #0056b3; /* Example color */
-        --fourth-color: #ffc107; /* Example color */
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      .merriweather-light {
-        font-family: "Merriweather", serif;
-        font-weight: 300;
-        font-style: normal;
-      }
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-      body {
-        height: 100vh;
-        margin: 0; /* Reset default margin */
-        /* font-family: Arial, sans-serif; Example font */
-      }
+  <!-- Import Merriweather font styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
 
-      /* General styles */
-      nav {
-        background-color: #fff;
-        /* color: #fff; */
-        padding: 5px 20px;
-        font-size: large;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
+  <title>Header Example</title>
 
-      .brand img {
-        vertical-align: middle;
-      }
+  <style>
+    /* CSS Variables for color scheme */
+    :root {
+      --third-color: #007bff; /* Blue color */
+      --blue-color: #0056b3; /* Dark blue color */
+      --fourth-color: #ffc107; /* Yellow color */
+    }
 
-      .nav-wrapper {
-        margin-right: 20px;
-        display: flex; /* Flex container */
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
+    /* Font styling for Merriweather Light */
+    .merriweather-light {
+      font-family: "Merriweather", serif;
+      font-weight: 300;
+      font-style: normal;
+    }
 
+    /* General styles for the body */
+    body {
+      height: 100vh;
+      margin: 0; /* Reset default margin */
+    }
+
+    /* Styling for the navigation bar */
+    nav {
+      background-color: #fff;
+      padding: 5px 20px;
+      font-size: large;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling for the brand logo */
+    .brand img {
+      vertical-align: middle;
+    }
+
+    /* Styling for the navigation wrapper */
+    .nav-wrapper {
+      margin-right: 20px;
+      display: flex; /* Flex container */
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Styling for the hamburger menu */
+    .hamberger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    /* Styling for the hamburger icon spans */
+    .hamberger span {
+      height: 3px;
+      width: 25px;
+      background-color: #333;
+      margin: 3px 0;
+      transition: transform 0.4s;
+    }
+
+    /* Styling for close icon in hamburger menu */
+    .hamberger .close:nth-child(1),
+    .hamberger .close:nth-child(3) {
+      transform: rotate(45deg);
+    }
+
+    .hamberger .close:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+
+    /* Styling for the navigation list */
+    .nav-list {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Styling for navigation list items */
+    .nav-list li {
+      padding: 0 15px;
+    }
+
+    /* Styling for navigation links */
+    .nav-list li a {
+      color: #333;
+      text-decoration: none; /* Remove text decoration */
+      list-style-type: none; /* Remove default list style */
+    }
+
+    /* Hover effect for navigation links */
+    .nav-list li a:hover {
+      color: var(--fourth-color); /* Change color on hover */
+    }
+
+    /* Styling for dropdown list */
+    .dropdown-list {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      z-index: 1;
+      padding: 50px 50px;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Display dropdown list on hover */
+    .nav-list li:hover .dropdown-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Styling for buttons */
+    .btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: large;
+      border-radius: 8px;
+    }
+
+    /* Hover effect for buttons */
+    .btn:hover {
+      background-color: var(--fourth-color); /* Change color on hover */
+    }
+
+    /* Media Query for tablet (max-width: 768px) */
+    @media (max-width: 768px) {
+      /* Display hamburger menu on tablet screens */
       .hamberger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        margin-top: 5px;
-      }
-
-      .hamberger span {
-        height: 3px;
-        width: 25px;
-        background-color: #333;
-        margin: 3px 0;
-        transition: transform 0.4s;
-      }
-
-      /* Close icon styling */
-      .hamberger .close:nth-child(1),
-      .hamberger .close:nth-child(3) {
-        transform: rotate(45deg);
-      }
-
-      .hamberger .close:nth-child(2) {
-        transform: rotate(-45deg);
-      }
-
-      /* Navigation menu styles */
-      .nav-list {
-        list-style-type: none;
         display: flex;
-        align-items: center;
       }
 
-      .nav-list li {
-        padding: 0 15px;
-      }
-
-      .nav-list li a {
-        color: #333;
-        text-decoration: none; /* Remove text decoration */
-        list-style-type: none; /* Remove default list style */
-      }
-
-      .nav-list li a:hover {
-        color: var(--fourth-color);
-      }
-
-      .dropdown-list {
-        display: none;
-        position: absolute;
-        background-color: #fff;
-        z-index: 1;
-        padding: 50px 50px;
-        text-decoration: none;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-list li:hover .dropdown-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .btn {
+      /* Adjust padding for navigation bar on tablet screens */
+      .nav {
         padding: 10px 20px;
-        background-color: #007bff;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-        font-size: large;
-        border-radius: 8px;
-        /*margin-top: 12px;  Adjust margin for responsive layout */
       }
 
-      .btn:hover {
-        background-color: var(--fourth-color);
+      /* Align navigation wrapper to start on tablet screens */
+      .nav-wrapper {
+        align-items: start;
       }
 
-      /* Media Query for tablet (max-width: 768px) */
-      @media (max-width: 768px) {
-        .hamberger {
-          display: flex;
-        }
-
-        .nav {
-          padding: 10px 20px;
-        }
-
-        .nav-wrapper {
-          align-items: start;
-        }
-
-        .nav-list {
-          display: none;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-          text-align: center;
-          padding: 20px 0;
-        }
-
-        .nav-list.active {
-          display: flex;
-        }
-
-        .nav-list li {
-          padding: 10px 0;
-        }
+      /* Hide navigation list by default on tablet screens */
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
       }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <div class="menu-container nav-wrapper">
-        <!-- <div class="nav-div"> -->
-        <div class="brand">
-          <a class="active" href="index.html">
-            <img
-              src="/logo.png"
-              width="60px"
-              height="50px"
-              alt="Insurance Logo"
-              style="border: 0px"
-            />
-          </a>
-        </div>
 
-        <!-- <div class="hamberger">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span class="close"></span>
-          </div> -->
-        <!-- </div> -->
+      /* Display navigation list when active on tablet screens */
+      .nav-list.active {
+        display: flex;
+      }
 
-        <ul class="nav-list">
-          <li>
-            <a href="#">Services</a>
-            <!-- <div class="dropdown-content"> -->
-              <div class="dropdown-list">
-                <a href="#">Service 1</a>
-                <a href="#">Service 2</a>
-                <a href="#">Service 3</a>
-              </div>
-            <!-- </div> -->
-          </li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contacts</a></li>
-          <a href="#"><button class="btn btn-blue">Get Started</button></a>
-        </ul>
-
-        <div class="hamberger">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span class="close"></span>
-        </div>
+      /* Adjust padding for navigation list items on tablet screens */
+      .nav-list li {
+        padding: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu-container nav-wrapper">
+      <div class="brand">
+        <a class="active" href="index.html">
+          <img
+            src="/logo.png"
+            width="60px"
+            height="50px"
+            alt="Insurance Logo"
+            style="border: 0px"
+          />
+        </a>
       </div>
-    </nav>
 
-    <script>
-      // Select elements
-      const hamberger = document.querySelector(".hamberger");
-      const navList = document.querySelector(".nav-list");
+      <ul class="nav-list">
+        <li>
+          <a href="#">Services</a>
+          <div class="dropdown-list">
+            <a href="#">Service 1</a>
+            <a href="#">Service 2</a>
+            <a href="#">Service 3</a>
+          </div>
+        </li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contacts</a></li>
+        <a href="#"><button class="btn btn-blue">Get Started</button></a>
+      </ul>
 
-      // Function to toggle menu visibility
-      function toggleMenu() {
-        navList.classList.toggle("active"); // Toggle the 'active' class on navList
-        hamberger.classList.toggle("close"); // Toggle the 'close' class on hamberger
+      <div class="hamberger">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="close"></span>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // Select elements
+    const hamberger = document.querySelector(".hamberger");
+    const navList = document.querySelector(".nav-list");
+
+    // Function to toggle menu visibility
+    function toggleMenu() {
+      navList.classList.toggle("active"); // Toggle the 'active' class on navList
+      hamberger.classList.toggle("close"); // Toggle the 'close' class on hamberger
+    }
+
+    // Event listener for hamburger icon click
+    hamberger.addEventListener("click", () => {
+      toggleMenu();
+      // Change hamburger icon to close icon after opening the menu
+      if (hamberger.classList.contains("close")) {
+        hamberger.innerHTML = "<span></span><span></span><span></span>"; // Reset hamberger content
+      } else {
+        hamberger.innerHTML =
+          '<span></span><span></span><span></span><span class="close"></span>'; // Add close icon to hamberger
       }
-
-      // Event listener for hamburger icon click
-      hamberger.addEventListener("click", () => {
-        toggleMenu();
-        // Change hamburger icon to close icon after opening the menu
-        if (hamberger.classList.contains("close")) {
-          hamberger.innerHTML = "<span></span><span></span><span></span>"; // Reset hamberger content
-        } else {
-          hamberger.innerHTML =
-            '<span></span><span></span><span></span><span class="close"></span>'; // Add close icon to hamberger
-        }
-      });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
